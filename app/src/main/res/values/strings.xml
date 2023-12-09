@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">YupWeather</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="day_forecast">Day Forecast</string>
+    <string name="detail_forecast">Detail Forecast</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
 </resources>
