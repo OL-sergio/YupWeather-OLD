@@ -1,20 +1,25 @@
 package openweather.api.java.yupweather;
 
-import androidx.activity.OnBackPressedDispatcher;
-import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Lifecycle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.Toast;
+
+
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
+
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import openweather.api.java.yupweather.ultility.AndroidNavigation;
 
@@ -33,6 +38,35 @@ public class MainActivity extends AppCompatActivity {
         view = getWindow().getDecorView();
         view.setSystemUiVisibility(androidNavigation.settingsMainNavigation());
 
+        Toolbar toolbarMain  =  findViewById(R.id.toolbar);
+        toolbarMain.setTitle("WhatApp");
+        setSupportActionBar(toolbarMain);
+
+
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.menuItem_gpsLocation :
+                Log.d("Data: ","gps");
+                return true;
+
+            case R.id.menuItem_searchLocation:
+                Log.d("Data: ","search");
+                return true;
+
+            default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
 }
