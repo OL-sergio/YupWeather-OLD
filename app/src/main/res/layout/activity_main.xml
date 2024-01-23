@@ -9,9 +9,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -21,7 +24,6 @@
                             android:id="@+id/toolbar_main"
                             layout="@layout/toolbar"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +35,8 @@
                             android:gravity="center"
                             app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
                             app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
-                            app:layout_constraintTop_toTopOf="@+id/textView_dateForecast" />
+                            app:layout_constraintTop_toTopOf="@+id/textView_dateForecast"
+                            tools:ignore="UnknownId" />
 
                         <RelativeLayout
                             android:layout_width="260dp"
@@ -46,8 +49,10 @@
                             app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
 
                         <RelativeLayout
-                            android:layout_width="265dp"
-                            android:layout_height="310dp"
+                            android:layout_width="380dp"
+                            android:layout_height="380dp"
+                            android:scaleY="1"
+                            android:scaleX="0.8"
                             android:background="@drawable/background_data_forecast"
                             app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
                             app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
@@ -107,320 +112,318 @@
                                             android:textStyle="bold"
                                             app:layout_constraintEnd_toEndOf="@+id/textView_todayTemperature"
                                             app:layout_constraintStart_toStartOf="@+id/textView_todayTemperature"
-                                            app:layout_constraintTop_toBottomOf="@+id/textView_todayTemperature"
-                                            tools:ignore="SmallSp" />
-
+                                            app:layout_constraintTop_toBottomOf="@+id/textView_todayTemperature" />
 
                                 </androidx.constraintlayout.widget.ConstraintLayout>
                         </LinearLayout>
 
-                        <FrameLayout
-                            android:id="@+id/frame_3"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginTop="125dp"
-                            android:background="@drawable/background_hour_forecast"
-                            android:clipToOutline="true"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+                              <FrameLayout
+                                  android:id="@+id/frame_3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="0dp"
+                                  android:layout_marginTop="125dp"
+                                  android:background="@drawable/background_hour_forecast"
+                                  android:clipToOutline="true"
+                                  app:layout_constraintBottom_toBottomOf="parent"
+                                  app:layout_constraintEnd_toEndOf="parent"
+                                  app:layout_constraintStart_toStartOf="parent"
+                                  app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                      <androidx.constraintlayout.widget.ConstraintLayout
+                                          android:layout_width="match_parent"
+                                          android:layout_height="match_parent">
 
-                                        <androidx.recyclerview.widget.RecyclerView
-                                            android:id="@+id/recyclerView_forecastMini"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_marginTop="80dp"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintHorizontal_bias="0.0"
-                                            app:layout_constraintStart_toStartOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            app:layout_constraintVertical_bias="0.0" />
+                                              <androidx.recyclerview.widget.RecyclerView
+                                                  android:id="@+id/recyclerView_forecastMini"
+                                                  android:layout_width="0dp"
+                                                  android:layout_height="0dp"
+                                                  android:layout_marginTop="80dp"
+                                                  app:layout_constraintBottom_toBottomOf="parent"
+                                                  app:layout_constraintEnd_toEndOf="parent"
+                                                  app:layout_constraintStart_toStartOf="parent"
+                                                  app:layout_constraintTop_toTopOf="parent" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                        </FrameLayout>
+                                      </androidx.constraintlayout.widget.ConstraintLayout>
+                              </FrameLayout>
 
-                        <TextView
-                            android:id="@+id/textView_dateForecast"
-                            android:layout_width="170dp"
-                            android:layout_height="37dp"
-                            android:layout_marginBottom="270dp"
-                            android:background="@drawable/ic_rectangle_round_mini"
-                            android:gravity="center"
-                            android:text="Sunday, 8 march 2021"
-                            android:textSize="11sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
-                            app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
-                            app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
+                              <TextView
+                                  android:id="@+id/textView_dateForecast"
+                                  android:layout_width="170dp"
+                                  android:layout_height="37dp"
+                                  android:layout_marginBottom="270dp"
+                                  android:background="@drawable/ic_rectangle_round_mini"
+                                  android:gravity="center"
+                                  android:text="Sunday, 8 march 2021"
+                                  android:textSize="11sp"
+                                  app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+                                  app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+                                  app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
 
-                        <FrameLayout
-                            android:id="@+id/frameLayout"
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="80dp"
-                            app:layout_constraintBottom_toTopOf="@+id/frame_3"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+                              <FrameLayout
+                                  android:id="@+id/frameLayout"
+                                  android:layout_width="320dp"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="80dp"
+                                  app:layout_constraintBottom_toTopOf="@+id/frame_3"
+                                  app:layout_constraintEnd_toEndOf="parent"
+                                  app:layout_constraintStart_toStartOf="parent"
+                                  app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                      <androidx.constraintlayout.widget.ConstraintLayout
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content">
 
-                                    <ImageView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="115dp"
-                                        android:layout_marginTop="80dp"
-                                        android:background="@drawable/background_data_forecast"
-                                        android:importantForAccessibility="no"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                              <ImageView
+                                                  android:layout_width="match_parent"
+                                                  android:layout_height="115dp"
+                                                  android:layout_marginTop="80dp"
+                                                  android:background="@drawable/background_data_forecast"
+                                                  android:importantForAccessibility="no"
+                                                  android:scaleType="fitCenter"
+                                                  app:layout_constraintBottom_toBottomOf="parent"
+                                                  app:layout_constraintEnd_toEndOf="parent"
+                                                  app:layout_constraintStart_toStartOf="parent"
+                                                  app:layout_constraintTop_toTopOf="parent" />
 
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+                                      </androidx.constraintlayout.widget.ConstraintLayout>
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="125dp"
-                                    android:layout_gravity="center"
-                                    android:background="@drawable/ic_rectangle_round_corners">
+                                      <androidx.constraintlayout.widget.ConstraintLayout
+                                          android:layout_width="match_parent"
+                                          android:layout_height="125dp"
+                                          android:layout_gravity="center"
+                                          android:background="@drawable/ic_rectangle_round_corners">
 
-                                        <ImageView
-                                            android:id="@+id/imageView_iconHumidity"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_weight="1"
-                                            android:background="@drawable/img_1_humidity"
-                                            android:importantForAccessibility="no"
-                                            android:scaleType="fitXY"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toStartOf="@+id/guideline4"
-                                            app:layout_constraintStart_toStartOf="@+id/guideline4"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            app:layout_constraintVertical_bias="0.302" />
+                                              <ImageView
+                                                  android:id="@+id/imageView_iconHumidity"
+                                                  android:layout_width="30dp"
+                                                  android:layout_height="30dp"
+                                                  android:layout_weight="1"
+                                                  android:background="@drawable/img_1_humidity"
+                                                  android:importantForAccessibility="no"
+                                                  android:scaleType="fitXY"
+                                                  app:layout_constraintBottom_toBottomOf="parent"
+                                                  app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                                                  app:layout_constraintStart_toStartOf="@+id/guideline4"
+                                                  app:layout_constraintTop_toTopOf="parent"
+                                                  app:layout_constraintVertical_bias="0.3" />
 
-                                        <TextView
-                                            android:id="@+id/textView_dataHumidity"
-                                            android:layout_width="60dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="75%"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/black"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/imageView_iconHumidity"
-                                            app:layout_constraintStart_toStartOf="@+id/imageView_iconHumidity"
-                                            app:layout_constraintTop_toBottomOf="@+id/imageView_iconHumidity" />
+                                              <TextView
+                                                  android:id="@+id/textView_dataHumidity"
+                                                  android:layout_width="60dp"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="75%"
+                                                  android:textAlignment="center"
+                                                  android:textColor="@color/black"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/imageView_iconHumidity"
+                                                  app:layout_constraintStart_toStartOf="@+id/imageView_iconHumidity"
+                                                  app:layout_constraintTop_toBottomOf="@+id/imageView_iconHumidity" />
 
-                                        <TextView
-                                            android:id="@+id/textView_textHumidity"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="Humidity"
-                                            android:textColor="@color/blue_100"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/textView_dataHumidity"
-                                            app:layout_constraintStart_toStartOf="@+id/textView_dataHumidity"
-                                            app:layout_constraintTop_toBottomOf="@+id/textView_dataHumidity" />
+                                              <TextView
+                                                  android:id="@+id/textView_textHumidity"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="Humidity"
+                                                  android:textColor="@color/blue_100"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/textView_dataHumidity"
+                                                  app:layout_constraintStart_toStartOf="@+id/textView_dataHumidity"
+                                                  app:layout_constraintTop_toBottomOf="@+id/textView_dataHumidity" />
 
-                                        <ImageView
-                                            android:id="@+id/imageView_iconWind"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_weight="1"
-                                            android:background="@drawable/img_2_wind"
-                                            android:importantForAccessibility="no"
-                                            android:scaleType="fitXY"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-                                            app:layout_constraintStart_toStartOf="@+id/guideline3"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            app:layout_constraintVertical_bias="0.3" />
+                                              <ImageView
+                                                  android:id="@+id/imageView_iconWind"
+                                                  android:layout_width="30dp"
+                                                  android:layout_height="30dp"
+                                                  android:layout_weight="1"
+                                                  android:background="@drawable/img_2_wind"
+                                                  android:importantForAccessibility="no"
+                                                  android:scaleType="fitXY"
+                                                  app:layout_constraintBottom_toBottomOf="parent"
+                                                  app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                                                  app:layout_constraintStart_toStartOf="@+id/guideline3"
+                                                  app:layout_constraintTop_toTopOf="parent"
+                                                  app:layout_constraintVertical_bias="0.3" />
 
-                                        <TextView
-                                            android:id="@+id/textView_dataWind"
-                                            android:layout_width="60dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="8 km/h"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/black"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/imageView_iconWind"
-                                            app:layout_constraintStart_toStartOf="@+id/imageView_iconWind"
-                                            app:layout_constraintTop_toBottomOf="@+id/imageView_iconWind" />
+                                              <TextView
+                                                  android:id="@+id/textView_dataWind"
+                                                  android:layout_width="60dp"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="8 km/h"
+                                                  android:textAlignment="center"
+                                                  android:textColor="@color/black"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/imageView_iconWind"
+                                                  app:layout_constraintStart_toStartOf="@+id/imageView_iconWind"
+                                                  app:layout_constraintTop_toBottomOf="@+id/imageView_iconWind" />
 
-                                        <TextView
-                                            android:id="@+id/textView_textWind"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="Wind"
-                                            android:textColor="@color/blue_100"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/textView_dataWind"
-                                            app:layout_constraintStart_toStartOf="@+id/textView_dataWind"
-                                            app:layout_constraintTop_toBottomOf="@+id/textView_dataWind" />
+                                              <TextView
+                                                  android:id="@+id/textView_textWind"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="Wind"
+                                                  android:textColor="@color/blue_100"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/textView_dataWind"
+                                                  app:layout_constraintStart_toStartOf="@+id/textView_dataWind"
+                                                  app:layout_constraintTop_toBottomOf="@+id/textView_dataWind" />
 
-                                        <ImageView
-                                            android:id="@+id/imageView_iconAirPressure"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_weight="1"
-                                            android:background="@drawable/img_3_air_pressure"
-                                            android:importantForAccessibility="no"
-                                            android:scaleType="fitXY"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                                            app:layout_constraintStart_toStartOf="@+id/guideline2"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            app:layout_constraintVertical_bias="0.3" />
+                                              <ImageView
+                                                  android:id="@+id/imageView_iconAirPressure"
+                                                  android:layout_width="30dp"
+                                                  android:layout_height="30dp"
+                                                  android:layout_weight="1"
+                                                  android:background="@drawable/img_3_air_pressure"
+                                                  android:importantForAccessibility="no"
+                                                  android:scaleType="fitXY"
+                                                  app:layout_constraintBottom_toBottomOf="parent"
+                                                  app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                                                  app:layout_constraintStart_toStartOf="@+id/guideline2"
+                                                  app:layout_constraintTop_toTopOf="parent"
+                                                  app:layout_constraintVertical_bias="0.3" />
 
-                                        <TextView
-                                            android:id="@+id/textView_dataAirPressure"
-                                            android:layout_width="60dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="1023"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/black"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/imageView_iconAirPressure"
-                                            app:layout_constraintStart_toStartOf="@+id/imageView_iconAirPressure"
-                                            app:layout_constraintTop_toBottomOf="@+id/imageView_iconAirPressure" />
+                                              <TextView
+                                                  android:id="@+id/textView_dataAirPressure"
+                                                  android:layout_width="60dp"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="1023"
+                                                  android:textAlignment="center"
+                                                  android:textColor="@color/black"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/imageView_iconAirPressure"
+                                                  app:layout_constraintStart_toStartOf="@+id/imageView_iconAirPressure"
+                                                  app:layout_constraintTop_toBottomOf="@+id/imageView_iconAirPressure" />
 
-                                        <TextView
-                                            android:id="@+id/textView_textAirPressure"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="Air Pressure"
-                                            android:textColor="@color/blue_100"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/textView_dataAirPressure"
-                                            app:layout_constraintStart_toStartOf="@+id/textView_dataAirPressure"
-                                            app:layout_constraintTop_toBottomOf="@+id/textView_dataAirPressure" />
+                                              <TextView
+                                                  android:id="@+id/textView_textAirPressure"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="Air Pressure"
+                                                  android:textColor="@color/blue_100"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/textView_dataAirPressure"
+                                                  app:layout_constraintStart_toStartOf="@+id/textView_dataAirPressure"
+                                                  app:layout_constraintTop_toBottomOf="@+id/textView_dataAirPressure" />
 
-                                        <ImageView
-                                            android:id="@+id/imageView_iconVisibility"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_weight="1"
-                                            android:background="@drawable/img_4_visibility"
-                                            android:importantForAccessibility="no"
-                                            android:scaleType="fitXY"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toStartOf="@+id/guideline1"
-                                            app:layout_constraintStart_toStartOf="@+id/guideline1"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            app:layout_constraintVertical_bias="0.3" />
+                                              <ImageView
+                                                  android:id="@+id/imageView_iconVisibility"
+                                                  android:layout_width="30dp"
+                                                  android:layout_height="30dp"
+                                                  android:layout_weight="1"
+                                                  android:background="@drawable/img_4_visibility"
+                                                  android:importantForAccessibility="no"
+                                                  android:scaleType="fitXY"
+                                                  app:layout_constraintBottom_toBottomOf="parent"
+                                                  app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                                                  app:layout_constraintStart_toStartOf="@+id/guideline1"
+                                                  app:layout_constraintTop_toTopOf="parent"
+                                                  app:layout_constraintVertical_bias="0.3" />
 
-                                        <TextView
-                                            android:id="@+id/textView_dataVisibility"
-                                            android:layout_width="60dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="6 km"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/black"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/imageView_iconVisibility"
-                                            app:layout_constraintStart_toStartOf="@+id/imageView_iconVisibility"
-                                            app:layout_constraintTop_toBottomOf="@+id/imageView_iconVisibility" />
+                                              <TextView
+                                                  android:id="@+id/textView_dataVisibility"
+                                                  android:layout_width="60dp"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="6 km"
+                                                  android:textAlignment="center"
+                                                  android:textColor="@color/black"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/imageView_iconVisibility"
+                                                  app:layout_constraintStart_toStartOf="@+id/imageView_iconVisibility"
+                                                  app:layout_constraintTop_toBottomOf="@+id/imageView_iconVisibility" />
 
-                                        <TextView
-                                            android:id="@+id/textView_textVisibility"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="2dp"
-                                            android:text="Vesibility"
-                                            android:textColor="@color/blue_100"
-                                            android:textSize="12sp"
-                                            android:textStyle="bold"
-                                            app:layout_constraintEnd_toEndOf="@+id/textView_dataVisibility"
-                                            app:layout_constraintStart_toStartOf="@+id/textView_dataVisibility"
-                                            app:layout_constraintTop_toBottomOf="@+id/textView_dataVisibility" />
+                                              <TextView
+                                                  android:id="@+id/textView_textVisibility"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:layout_marginTop="2dp"
+                                                  android:text="Vesibility"
+                                                  android:textColor="@color/blue_100"
+                                                  android:textSize="12sp"
+                                                  android:textStyle="bold"
+                                                  app:layout_constraintEnd_toEndOf="@+id/textView_dataVisibility"
+                                                  app:layout_constraintStart_toStartOf="@+id/textView_dataVisibility"
+                                                  app:layout_constraintTop_toBottomOf="@+id/textView_dataVisibility" />
 
-                                        <androidx.constraintlayout.widget.Guideline
-                                            android:id="@+id/guideline1"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical"
-                                            app:layout_constraintGuide_begin="256dp" />
+                                              <androidx.constraintlayout.widget.Guideline
+                                                  android:id="@+id/guideline1"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:orientation="vertical"
+                                                  app:layout_constraintGuide_percent="0.8" />
 
-                                        <androidx.constraintlayout.widget.Guideline
-                                            android:id="@+id/guideline2"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical"
-                                            app:layout_constraintGuide_percent="0.60" />
+                                              <androidx.constraintlayout.widget.Guideline
+                                                  android:id="@+id/guideline2"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:orientation="vertical"
+                                                  app:layout_constraintGuide_percent="0.6" />
 
-                                        <androidx.constraintlayout.widget.Guideline
-                                            android:id="@+id/guideline3"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical"
-                                            app:layout_constraintGuide_percent="0.4" />
+                                              <androidx.constraintlayout.widget.Guideline
+                                                  android:id="@+id/guideline3"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:orientation="vertical"
+                                                  app:layout_constraintGuide_percent="0.4" />
 
-                                        <androidx.constraintlayout.widget.Guideline
-                                            android:id="@+id/guideline4"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical"
-                                            app:layout_constraintGuide_percent="0.2" />
+                                              <androidx.constraintlayout.widget.Guideline
+                                                  android:id="@+id/guideline4"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:orientation="vertical"
+                                                  app:layout_constraintGuide_percent="0.2" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                        </FrameLayout>
+                                      </androidx.constraintlayout.widget.ConstraintLayout>
+                              </FrameLayout>
 
-                        <LinearLayout
-                            android:id="@+id/linearLayout2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="32dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="32dp"
-                            android:orientation="horizontal"
-                            app:layout_constraintEnd_toEndOf="@+id/frameLayout"
-                            app:layout_constraintStart_toStartOf="@+id/frameLayout"
-                            app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+                              <LinearLayout
+                                  android:id="@+id/linearLayout2"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginStart="32dp"
+                                  android:layout_marginTop="8dp"
+                                  android:layout_marginEnd="32dp"
+                                  android:orientation="horizontal"
+                                  app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                                  app:layout_constraintStart_toStartOf="@+id/frameLayout"
+                                  app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
-                                <TextView
-                                    android:id="@+id/textView_view"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:text="Today"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                      <TextView
+                                          android:id="@+id/textView_view"
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="match_parent"
+                                          android:layout_weight="1"
+                                          android:text="Today"
+                                          android:textSize="18sp"
+                                          android:textStyle="bold" />
 
-                                <TextView
-                                    android:id="@+id/textView_nextSevenDays"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="Next 7 days"
-                                    android:textAlignment="textEnd"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    app:drawableEndCompat="@drawable/ic_keyboard_arrow_right_24" />
+                                      <TextView
+                                          android:id="@+id/textView_nextSevenDays"
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:layout_weight="1"
+                                          android:text="Next 7 days"
+                                          android:textAlignment="textEnd"
+                                          android:textSize="18sp"
+                                          android:textStyle="bold"
+                                          app:drawableEndCompat="@drawable/ic_keyboard_arrow_right_24" />
 
-                        </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-        </RelativeLayout>
+                              </LinearLayout>
+
+                      </androidx.constraintlayout.widget.ConstraintLayout>
+              </RelativeLayout>
 </ScrollView>
 
 
