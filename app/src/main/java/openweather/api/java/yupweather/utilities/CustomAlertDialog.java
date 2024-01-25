@@ -1,4 +1,4 @@
-package openweather.api.java.yupweather.ultility;
+package openweather.api.java.yupweather.utilities;
 
 import android.app.AlertDialog;
 import android.content.Context;

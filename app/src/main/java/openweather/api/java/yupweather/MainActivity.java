@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,32 +15,33 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import openweather.api.java.yupweather.ultility.AndroidNavigation;
-import openweather.api.java.yupweather.ultility.CustomAlertDialog;
-import openweather.api.java.yupweather.ultility.GPSTracker;
+import openweather.api.java.yupweather.database.SharedPreferenceLocation;
+import openweather.api.java.yupweather.utilities.SystemUi;
+import openweather.api.java.yupweather.utilities.CustomAlertDialog;
+import openweather.api.java.yupweather.utilities.GPSTracker;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AndroidNavigation androidNavigation;
+    private SystemUi systemUi;
     private GPSTracker gpsTracker;
+    private int requestCode = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        androidNavigation = new AndroidNavigation();
+        systemUi = new SystemUi();
 
         View view = getWindow().getDecorView();
-        view.setSystemUiVisibility(androidNavigation.settingsMainNavigation());
+        view.setSystemUiVisibility(systemUi.settingsMainNavigation());
 
         Toolbar toolbarMain  =  findViewById(R.id.toolbar);
-        toolbarMain.setTitle("WhatApp");
         setSupportActionBar(toolbarMain);
 
         try {
             if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
-                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, requestCode);
             }
         } catch (Exception e){
             e.printStackTrace();
@@ -57,12 +59,23 @@ public class MainActivity extends AppCompatActivity {
 
             gpsTracker.stopUsingGPS();
 
+            SharedPreferenceLocation.setLocation(
+                    getApplicationContext(),
+                    String.valueOf(longitude),
+                    String.valueOf(latitude)
+            );
+
+            String shareLatitude = SharedPreferenceLocation.getLatitudeLocation(getApplicationContext());
+            Log.d("shareLatitude", shareLatitude);
+
+            String shareLongitude = SharedPreferenceLocation.getLongitudeLocation(getApplicationContext());
+            Log.d("shareLongitude", shareLongitude);
+
         } else {
 
             CustomAlertDialog.setGpsSettings(this, "GPS settings", "GPS is not enabled. Do you want to go to settings menu?");
 
            //CustomAlertDialog.setNetworkSettings(this, "Network settings", "Network is not enabled. Do you want to go to settings menu?");
-
         }
     }
 
@@ -93,5 +106,11 @@ public class MainActivity extends AppCompatActivity {
             default:
             return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getWindow().clearFlags(systemUi.settingsSplashNavigation());
     }
 }

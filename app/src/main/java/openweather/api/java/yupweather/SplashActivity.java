@@ -9,15 +9,15 @@ import android.view.View;
 import android.view.animation.AnimationSet;
 import android.widget.ImageView;
 
-import openweather.api.java.yupweather.ultility.AndroidNavigation;
-import openweather.api.java.yupweather.ultility.Animations;
+import openweather.api.java.yupweather.utilities.SystemUi;
+import openweather.api.java.yupweather.utilities.Animations;
 
 
 public class SplashActivity extends AppCompatActivity {
 
     private ImageView imageViewSun, imageViewCloud;
     private Animations animations;
-    private AndroidNavigation androidNavigation;
+    private SystemUi systemUi;
     private View view;
 
     @Override
@@ -25,9 +25,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        androidNavigation = new AndroidNavigation();
+        systemUi = new SystemUi();
         view = getWindow().getDecorView();
-        view.setSystemUiVisibility(androidNavigation.settingsSplashNavigation());
+        view.setSystemUiVisibility(systemUi.settingsSplashNavigation());
+
+
 
         components();
 
@@ -58,5 +60,11 @@ public class SplashActivity extends AppCompatActivity {
     private void components() {
         imageViewSun =  findViewById(R.id.imageView_sun);
         imageViewCloud = findViewById(R.id.imageView_cloud);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getWindow().clearFlags(systemUi.settingsSplashNavigation());
     }
 }

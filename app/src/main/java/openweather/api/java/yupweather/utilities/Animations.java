@@ -1,6 +1,5 @@
-package openweather.api.java.yupweather.ultility;
+package openweather.api.java.yupweather.utilities;
 
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;

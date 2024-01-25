@@ -1,13 +1,8 @@
-package openweather.api.java.yupweather.ultility;
+package openweather.api.java.yupweather.utilities;
 
 import android.view.View;
-import android.view.Window;
 
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
-
-public class AndroidNavigation {
+public class SystemUi {
 
     int uiOptions;
 

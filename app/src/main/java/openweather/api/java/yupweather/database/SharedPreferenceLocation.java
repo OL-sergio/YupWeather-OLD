@@ -1,0 +1,42 @@
+package openweather.api.java.yupweather.database;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import androidx.annotation.NonNull;
+
+import openweather.api.java.yupweather.model.Location;
+
+public class SharedPreferenceLocation extends Activity {
+
+    private static final String location = "location_gps";
+    private static final String _latitude = null;
+    private static final String _longitude = "longitude";
+
+    private static SharedPreferences sharedPreferences;
+    private Location locationModel;
+
+
+    public static void setLocation(@NonNull Context context, String latitude , String longitude) {
+        sharedPreferences = context.getSharedPreferences(location, MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.clear();
+        editor.putString(_latitude, longitude);
+        editor.putString(_longitude, latitude);
+        editor.apply();
+    }
+
+    public static String getLongitudeLocation(@NonNull Context context) {
+        sharedPreferences = context.getSharedPreferences(location, MODE_PRIVATE); // 0 - for private mode
+        return sharedPreferences.getString( _longitude,"" )  ;
+    }
+
+    public static String getLatitudeLocation(@NonNull Context context) {
+        sharedPreferences = context.getSharedPreferences(location, MODE_PRIVATE); // 0 - for private mode
+        return sharedPreferences.getString(_latitude, "")  ;
+    }
+
+}
