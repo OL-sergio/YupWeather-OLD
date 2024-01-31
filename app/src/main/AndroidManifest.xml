@@ -19,7 +19,7 @@
         android:theme="@style/Theme.YupWeather"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name="weatherapp.api.java.yupweather.ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="weatherapp.api.java.yupweather.ui.MainActivity"
             android:exported="false">
         </activity>
     </application>

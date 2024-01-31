@@ -33,7 +33,6 @@ public class GPSTracker extends Service implements LocationListener {
     private double latitude;
     private double longitude;
 
-    private final int requestCode = 101 ;
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 100 MT
     private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 5; // 5 MIN
@@ -68,7 +67,7 @@ public class GPSTracker extends Service implements LocationListener {
 
                         ActivityCompat.requestPermissions((Activity) context,
                                 new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                                        Manifest.permission.ACCESS_COARSE_LOCATION}, requestCode);
+                                        Manifest.permission.ACCESS_COARSE_LOCATION}, Constants.requestCode);
                     }
 
                     locationManager.requestLocationUpdates(
@@ -102,7 +101,7 @@ public class GPSTracker extends Service implements LocationListener {
 
                             ActivityCompat.requestPermissions((Activity) context,
                                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                                            Manifest.permission.ACCESS_COARSE_LOCATION}, requestCode);
+                                            Manifest.permission.ACCESS_COARSE_LOCATION}, Constants.requestCode);
                         }
                         locationManager.requestLocationUpdates(
                                 LocationManager.GPS_PROVIDER,

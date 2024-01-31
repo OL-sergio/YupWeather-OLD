@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 
-import weatherapp.api.java.yupweather.model.Location;
-
 public class SharedPreferenceLocation extends Activity {
 
     private static final String location = "location_gps";
