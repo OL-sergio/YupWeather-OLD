@@ -1,4 +1,4 @@
-package openweather.api.java.yupweather.utilities;
+package weatherapp.api.java.yupweather.utilities;
 
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;

@@ -1,4 +1,4 @@
-package openweather.api.java.yupweather;
+package weatherapp.api.java.yupweather.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.animation.AnimationSet;
 import android.widget.ImageView;
 
-import openweather.api.java.yupweather.utilities.SystemUi;
-import openweather.api.java.yupweather.utilities.Animations;
+import openweather.api.java.yupweather.R;
+import weatherapp.api.java.yupweather.ui.MainActivity;
+import weatherapp.api.java.yupweather.utilities.SystemUi;
+import weatherapp.api.java.yupweather.utilities.Animations;
 
 
 public class SplashActivity extends AppCompatActivity {

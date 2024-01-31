@@ -1,4 +1,4 @@
-package openweather.api.java.yupweather;
+package weatherapp.api.java.yupweather;
 
 import org.junit.Test;
 

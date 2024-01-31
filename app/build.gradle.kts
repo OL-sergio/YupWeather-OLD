@@ -47,4 +47,7 @@ dependencies {
     implementation("com.ogaclejapan.smarttablayout:library:2.0.0@aar")
     implementation("com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar")
 
+    implementation("com.google.android.gms:play-services-location:21.1.0")
+
+
 }

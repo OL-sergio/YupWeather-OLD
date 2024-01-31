@@ -1,8 +1,6 @@
-package openweather.api.java.yupweather.model;
+package weatherapp.api.java.yupweather.model;
 
-import java.io.Serializable;
-
-public class Location implements Serializable {
+public class Location {
 
         private String latitudeGps;
         private String longitudeGps;

@@ -1,4 +1,4 @@
-package openweather.api.java.yupweather.database;
+package weatherapp.api.java.yupweather.database;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,16 +6,15 @@ import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 
-import openweather.api.java.yupweather.model.Location;
+import weatherapp.api.java.yupweather.model.Location;
 
 public class SharedPreferenceLocation extends Activity {
 
     private static final String location = "location_gps";
-    private static final String _latitude = null;
+    private static final String _latitude = "latitude";
     private static final String _longitude = "longitude";
 
     private static SharedPreferences sharedPreferences;
-    private Location locationModel;
 
 
     public static void setLocation(@NonNull Context context, String latitude , String longitude) {
