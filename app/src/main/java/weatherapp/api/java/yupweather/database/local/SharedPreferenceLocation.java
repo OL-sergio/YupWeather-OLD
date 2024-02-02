@@ -1,4 +1,4 @@
-package weatherapp.api.java.yupweather.database;
+package weatherapp.api.java.yupweather.database.local;
 
 import android.app.Activity;
 import android.content.Context;

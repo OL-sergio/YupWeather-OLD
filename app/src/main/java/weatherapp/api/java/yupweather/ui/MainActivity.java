@@ -13,13 +13,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import openweather.api.java.yupweather.R;
+import openweather.api.java.yupweather.databinding.ActivityMainBinding;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import weatherapp.api.java.yupweather.database.SharedPreferenceLocation;
+import weatherapp.api.java.yupweather.database.local.SharedPreferenceLocation;
 import weatherapp.api.java.yupweather.database.api.APIClient;
 import weatherapp.api.java.yupweather.database.api.DataService;
 import weatherapp.api.java.yupweather.model.WeatherDay;
@@ -30,36 +33,52 @@ import weatherapp.api.java.yupweather.utilities.GPSTracker;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
+    private TextView dateTimeDay, temperatureDay, weatherDay,
+            visibilityDay, pressureDay, windDay, humidityDay;
+    private ImageView todayIconWeather;
+
     private SystemUi systemUi;
     private GPSTracker gpsTracker;
 
     private DataService dataService;
     private Call<WeatherDay> dayCall;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         systemUi = new SystemUi();
 
-        View view = getWindow().getDecorView();
         view.setSystemUiVisibility(systemUi.settingsMainNavigation());
 
-        Toolbar toolbarMain  =  findViewById(R.id.toolbar);
+        Toolbar toolbarMain  =  binding.toolbarMain.toolbar;
         setSupportActionBar(toolbarMain);
+
+        components();
 
         try {
 
-            if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
+            if (ContextCompat.checkSelfPermission(getBaseContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
                 ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, Constants.requestCode);
             }
         } catch (Exception e){
             e.printStackTrace();
         }
 
-        String latitude = SharedPreferenceLocation.getLatitudeLocation(getApplicationContext());
-        String longitude = SharedPreferenceLocation.getLongitudeLocation(getApplicationContext());
+        getAPIConnection();
+        
+    }
+
+    private void getAPIConnection() {
+
+        String latitude = SharedPreferenceLocation.getLatitudeLocation(getBaseContext());
+        String longitude = SharedPreferenceLocation.getLongitudeLocation(getBaseContext());
 
         dataService = APIClient.getInstance().create(DataService.class);
         dayCall = dataService.getDayWeather(latitude,longitude, Constants.API_KEY);
@@ -69,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<WeatherDay> call, Response<WeatherDay> response) {
                 Log.d("retrofitResponse: ", String.valueOf(response.code()));
                 Log.d("retrofitResponse: ", response.message());
-                
-                
+
+
             }
 
             @Override
@@ -79,18 +98,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        getAPIConnection();
-        
-    }
-
-    private void getAPIConnection() {
-
-
-
     }
 
     private void getLocation() {
+
         gpsTracker = new GPSTracker(MainActivity.this);
         if (gpsTracker.statLocation()) {
             double latitude = gpsTracker.getLatitude();
@@ -102,15 +113,15 @@ public class MainActivity extends AppCompatActivity {
             gpsTracker.stopUsingGPS();
 
             SharedPreferenceLocation.setLocation(
-                    getApplicationContext(),
+                    getBaseContext(),
                     String.valueOf(longitude),
                     String.valueOf(latitude)
             );
 
-            String shareLatitude = SharedPreferenceLocation.getLatitudeLocation(getApplicationContext());
+            String shareLatitude = SharedPreferenceLocation.getLatitudeLocation(getBaseContext());
             Log.d("shareLatitude", shareLatitude);
 
-            String shareLongitude = SharedPreferenceLocation.getLongitudeLocation(getApplicationContext());
+            String shareLongitude = SharedPreferenceLocation.getLongitudeLocation(getBaseContext());
             Log.d("shareLongitude", shareLongitude);
 
         } else {
@@ -148,6 +159,16 @@ public class MainActivity extends AppCompatActivity {
             default:
             return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void components() {
+        dateTimeDay = binding.textViewDateForecast;
+        temperatureDay = binding.textViewTodayTemperature;
+        weatherDay = binding.textViewTodayWeather;
+        visibilityDay = binding.textViewDataVisibility;
+        pressureDay = binding.textViewDataAirPressure;
+        windDay = binding.textViewDataWind;
+        humidityDay = binding.textViewDataHumidity;
     }
 
     @Override

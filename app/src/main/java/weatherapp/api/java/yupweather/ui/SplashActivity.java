@@ -9,33 +9,31 @@ import android.view.View;
 import android.view.animation.AnimationSet;
 import android.widget.ImageView;
 
-
-import openweather.api.java.yupweather.R;
+import openweather.api.java.yupweather.databinding.ActivitySplashBinding;
 import weatherapp.api.java.yupweather.utilities.SystemUi;
 import weatherapp.api.java.yupweather.utilities.Animations;
 
 
 public class SplashActivity extends AppCompatActivity {
 
+    private ActivitySplashBinding binding;
+
     private ImageView imageViewSun, imageViewCloud;
-    private Animations animations;
     private SystemUi systemUi;
-    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        binding = ActivitySplashBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         systemUi = new SystemUi();
-        view = getWindow().getDecorView();
         view.setSystemUiVisibility(systemUi.settingsSplashNavigation());
-
-
 
         components();
 
-        animations = new Animations();
+        Animations animations = new Animations();
 
         AnimationSet multipleSunAnimationSet = new AnimationSet(true);
         multipleSunAnimationSet.addAnimation(animations.getAnimFade());
@@ -60,8 +58,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void components() {
-        imageViewSun =  findViewById(R.id.imageView_sun);
-        imageViewCloud = findViewById(R.id.imageView_cloud);
+        imageViewSun =  binding.imageViewSun;
+        imageViewCloud = binding.imageViewCloud;
     }
 
     @Override
