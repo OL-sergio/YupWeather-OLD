@@ -27,12 +27,12 @@ public class SharedPreferenceLocation extends Activity {
     }
 
     public static String getLongitudeLocation(@NonNull Context context) {
-        sharedPreferences = context.getSharedPreferences(location, MODE_PRIVATE); // 0 - for private mode
+        sharedPreferences = context.getSharedPreferences(location, MODE_PRIVATE);
         return sharedPreferences.getString( _longitude,"" )  ;
     }
 
     public static String getLatitudeLocation(@NonNull Context context) {
-        sharedPreferences = context.getSharedPreferences(location, MODE_PRIVATE); // 0 - for private mode
+        sharedPreferences = context.getSharedPreferences(location, MODE_PRIVATE);
         return sharedPreferences.getString(_latitude, "")  ;
     }
 

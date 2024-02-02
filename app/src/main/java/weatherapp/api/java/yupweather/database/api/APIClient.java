@@ -4,6 +4,8 @@ import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import weatherapp.api.java.yupweather.helpers.DeserializerDay;
+import weatherapp.api.java.yupweather.model.WeatherDay;
 import weatherapp.api.java.yupweather.utilities.Constants;
 
 public class APIClient {
@@ -14,6 +16,7 @@ public class APIClient {
         if ( retrofit == null ) {
 
             GsonBuilder builder = new GsonBuilder();
+            builder.registerTypeAdapter( WeatherDay.class, new DeserializerDay() );
 
             retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
@@ -23,5 +26,4 @@ public class APIClient {
         }
         return retrofit;
     }
-
 }

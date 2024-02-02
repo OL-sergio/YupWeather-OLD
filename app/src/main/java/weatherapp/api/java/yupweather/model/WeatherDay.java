@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName;
 public class WeatherDay {
     /*{
         "coord": {
-        "lon": 10.99,
-                "lat": 44.34
+            "lon": 10.99,
+             "lat": 44.34
     },
         "weather": [
         {
-            "id": 803,
+                "id": 803,
                 "main": "Clouds",
                 "description": "broken clouds",
                 "icon": "04n"
@@ -49,100 +49,142 @@ public class WeatherDay {
             "name": "Zocca",
             "cod": 200
     }*/
-    private int id;
-
+    @SerializedName("id")
+    private int getId;
     @SerializedName("main")
-    private final String getMainDay;
+    private String getMainDay;
     @SerializedName("description")
-    private final String descriptionDAy;
+    private String descriptionDAy;
     @SerializedName("icon")
-    private final String iconWeather;
+    private  String idIcon;
     @SerializedName("temp")
-    private final String tempDay;
-    @SerializedName("feels_like")
-    private final String mainDay;
-    @SerializedName("temp_min")
-    private final String tempMinDay;
-    @SerializedName("temp_max")
-    private final String tempMaxDay;
+    private  String tempDay;
     @SerializedName("pressure")
-    private final String pressureDay;
+    private String pressureDay;
+    @SerializedName("visibility")
+    private String visibilityDay;
     @SerializedName("humidity")
-    private final String humidityDay;
+    private String humidityDay;
     @SerializedName("speed")
-    private final String windSpeedDay;
+    private String windSpeedDay;
     @SerializedName("country")
-    private final String countryName;
+    private String countryName;
     @SerializedName("name")
-    private final String cityName;
+    private String cityName;
+
+
 
     public WeatherDay(
-            int id,
+            int getId,
             String getMainDay,
             String descriptionDAy,
-            String iconWeather,
+            String idIcon,
             String tempDay,
-            String mainDay,
-            String tempMinDay,
-            String tempMaxDay,
             String pressureDay,
+            String visibilityDay,
             String humidityDay,
             String windSpeedDay,
             String countryName,
             String cityName
     ) {
-        this.id = id;
+        this.getId = getId;
         this.getMainDay = getMainDay;
         this.descriptionDAy = descriptionDAy;
-        this.iconWeather = iconWeather;
+        this.idIcon = idIcon;
         this.tempDay = tempDay;
-        this.mainDay = mainDay;
-        this.tempMinDay = tempMinDay;
-        this.tempMaxDay = tempMaxDay;
         this.pressureDay = pressureDay;
+        this.visibilityDay = visibilityDay;
         this.humidityDay = humidityDay;
         this.windSpeedDay = windSpeedDay;
         this.countryName = countryName;
         this.cityName = cityName;
     }
 
-    public int getId() {
-        return id;
+    public int getGetId() {
+        return getId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setGetId(int getId) {
+        this.getId = getId;
     }
 
     public String getGetMainDay() {
         return getMainDay;
     }
 
+    public void setGetMainDay(String getMainDay) {
+        this.getMainDay = getMainDay;
+    }
+
     public String getDescriptionDAy() {
         return descriptionDAy;
     }
 
-    public String getIconWeather() {
-        return iconWeather;
+    public void setDescriptionDAy(String descriptionDAy) {
+        this.descriptionDAy = descriptionDAy;
     }
 
-    public String getMainDay() {
-        return mainDay;
+    public String getIdIcon() {
+        return idIcon;
+    }
+
+    public void setIdIcon(String idIcon) {
+        this.idIcon = idIcon;
+    }
+
+    public String getTempDay() {
+        return tempDay;
+    }
+
+    public void setTempDay(String tempDay) {
+        this.tempDay = tempDay;
     }
 
     public String getPressureDay() {
         return pressureDay;
     }
 
+    public void setPressureDay(String pressureDay) {
+        this.pressureDay = pressureDay;
+    }
+
+    public String getVisibilityDay() {
+        return visibilityDay;
+    }
+
+    public void setVisibilityDay(String visibilityDay) {
+        this.visibilityDay = visibilityDay;
+    }
+
     public String getHumidityDay() {
         return humidityDay;
+    }
+
+    public void setHumidityDay(String humidityDay) {
+        this.humidityDay = humidityDay;
+    }
+
+    public String getWindSpeedDay() {
+        return windSpeedDay;
+    }
+
+    public void setWindSpeedDay(String windSpeedDay) {
+        this.windSpeedDay = windSpeedDay;
     }
 
     public String getCountryName() {
         return countryName;
     }
 
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
     public String getCityName() {
         return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }
